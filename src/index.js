@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.css';
 
 function Content(props)
 {
@@ -12,7 +13,7 @@ function Content(props)
         </div>
         <span className="divider">:</span>
 
-        <div class="part">
+        <div className="part">
           <h1>{props.hour}</h1>
           <p>Hours</p>
         </div>
@@ -20,7 +21,7 @@ function Content(props)
         <span className="divider">:</span>
 
         <div className="part">
-          <h1>{props.minute.toLocaleTimeString()}</h1>
+          <h1>{props.minute}</h1>
           <p>Minutes</p>
         </div>
 
@@ -29,7 +30,7 @@ function Content(props)
         <div className="part">
           <h1>{props.second}</h1>
           <p>Seconds</p>
-        </div>        
+        </div>
       </div>
   );
 }
