@@ -1,17 +1,60 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+function Content(props)
+{
+  return(
+    <div id="fullBody">
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+        <div className="part">
+          <h1>{props.day}</h1>
+          <p>Day</p>
+        </div>
+        <span className="divider">:</span>
+
+        <div class="part">
+          <h1>{props.hour}</h1>
+          <p>Hours</p>
+        </div>
+
+        <span className="divider">:</span>
+
+        <div className="part">
+          <h1>{props.minute.toLocaleTimeString()}</h1>
+          <p>Minutes</p>
+        </div>
+
+        <span className="divider">:</span>
+
+        <div className="part">
+          <h1>{props.second}</h1>
+          <p>Seconds</p>
+        </div>        
+      </div>
+  );
+}
+
+
+setInterval(()=>{
+  const dateContent = {
+    fullDate: new Date(),
+    day: function(){
+      const d = this.fullDate.getDay();
+      const allDay = ["Sun", "Mon", "TUE", "WED", "THU", "FRI", "SAT"];
+      return allDay[d];
+    },
+    hour: function(){
+      const h = this.fullDate.getHours();
+      return h;
+    },
+  
+    minute: function(){
+      return this.fullDate.getMinutes();
+    },
+  
+    second: function(){
+      return this.fullDate.getSeconds();
+    }
+  }
+  ReactDOM.render(<Content day={dateContent.day()} hour={dateContent.hour()} minute={dateContent.minute()} second={dateContent.second()}/>, document.getElementById('upper'))
+}, 1000)
