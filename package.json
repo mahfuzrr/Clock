@@ -1,6 +1,6 @@
 {
   "homepage": "https://mahfuzrr.github.io/Clock",
-  "name": "Clock",
+  "name": "clock",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
